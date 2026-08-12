@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listening Test 1</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      line-height: 1.6;
+      background: #f5f5f5;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .audio-box {
+      text-align: center;
+      margin: 25px 0;
+      padding: 20px;
+      background: #eeeeee;
+      border-radius: 10px;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .question {
+      margin: 25px 0;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Listening Test 1</h1>
+
+  <p><strong>Instructions:</strong> Listen carefully to the recording and answer the questions.</p>
+
+  <div class="audio-box">
+    <p><strong>Listening 1</strong></p>
+
+    <audio controls>
+      <source src="listening-1.mp3" type="audio/mpeg">
+      Your browser does not support audio playback.
+    </audio>
+  </div>
+
+  <div class="question">
+    <p><strong>1. What was the community project about?</strong></p>
+    <label><input type="radio" name="q1" value="A"> A. Improving a local park</label><br>
+    <label><input type="radio" name="q1" value="B"> B. Building a new school</label><br>
+    <label><input type="radio" name="q1" value="C"> C. Cleaning a sports centre</label><br>
+    <label><input type="radio" name="q1" value="D"> D. Planting a school garden</label>
+  </div>
+
+  <div class="question">
+    <p><strong>2. Why did the students start at ten o'clock instead of nine?</strong></p>
+    <label><input type="radio" name="q2" value="A"> A. The teacher was late</label><br>
+    <label><input type="radio" name="q2" value="B"> B. They were waiting for tools</label><br>
+    <label><input type="radio" name="q2" value="C"> C. Heavy rain delayed them</label><br>
+    <label><input type="radio" name="q2" value="D"> D. Daniel arrived late</label>
+  </div>
+
+  <div class="question">
+    <p><strong>3. Which group did Daniel join?</strong></p>
+    <label><input type="radio" name="q3" value="A"> A. The group collecting rubbish</label><br>
+    <label><input type="radio" name="q3" value="B"> B. The group planting flowers</label><br>
+    <label><input type="radio" name="q3" value="C"> C. The group repairing benches</label><br>
+    <label><input type="radio" name="q3" value="D"> D. The group painting the park</label>
+  </div>
+
+  <div class="question">
+    <p><strong>4. What problem did one group discover?</strong></p>
+    <label><input type="radio" name="q4" value="A"> A. They had the wrong type of paint</label><br>
+    <label><input type="radio" name="q4" value="B"> B. They had lost their tools</label><br>
+    <label><input type="radio" name="q4" value="C"> C. They could not find the park</label><br>
+    <label><input type="radio" name="q4" value="D"> D. They had no flowers</label>
+  </div>
+
+  <div class="question">
+    <p><strong>5. What lesson did Daniel learn?</strong></p>
+    <label><input type="radio" name="q5" value="A"> A. Gardening is easy</label><br>
+    <label><input type="radio" name="q5" value="B"> B. Projects are always difficult</label><br>
+    <label><input type="radio" name="q5" value="C"> C. People should work alone</label><br>
+    <label><input type="radio" name="q5" value="D"> D. Successful projects depend on cooperation</label>
+  </div>
+
+  <button onclick="checkAnswers()">Submit Answers</button>
+
+  <div id="result"></div>
+
+</div>
+
+<script>
+function checkAnswers() {
+
+  const answers = {
+    q1: "A",
+    q2: "C",
+    q3: "C",
+    q4: "A",
+    q5: "D"
+  };
+
+  let score = 0;
+
+  for (let question in answers) {
+    const selected = document.querySelector(
+      'input[name="' + question + '"]:checked'
+    );
+
+    if (selected && selected.value === answers[question]) {
+      score++;
+    }
+  }
+
+  document.getElementById("result").innerHTML =
+    "Your score: " + score + " / 5";
+}
+</script>
+
+</body>
+</html>
